@@ -8,6 +8,8 @@ import cn.evole.onebot.sdk.event.message.GroupMessageEvent;
 import cn.evole.onebot.sdk.event.message.GuildMessageEvent;
 import cn.evole.onebot.sdk.event.message.PrivateMessageEvent;
 import cn.evole.onebot.sdk.event.message.WholeMessageEvent;
+import cn.evole.onebot.sdk.event.meta.HeartbeatMetaEvent;
+import cn.evole.onebot.sdk.event.meta.LifecycleMetaEvent;
 import cn.evole.onebot.sdk.util.GsonUtils;
 import com.google.gson.JsonObject;
 import lombok.val;
@@ -40,6 +42,8 @@ public class EventFactory {
                     && eventType != PrivateMessageEvent.class
                     && eventType != WholeMessageEvent.class
                     && eventType != GuildMessageEvent.class
+                    && eventType != LifecycleMetaEvent.class
+                    && eventType != HeartbeatMetaEvent.class
             ) {
                 client.getLogger().warn("▌ 命令系统尚未支持");
                 return null;
